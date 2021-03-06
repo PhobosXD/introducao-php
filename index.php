@@ -24,4 +24,9 @@ if ($idade >= 6 && $idade <= 12) {
     echo('Idade inválida!');
 }
 
+for ($i = 0; $i < count($categorias); $i++) {
+    print($categorias[$i]);
+
+}
+
 ?>
