@@ -12,21 +12,25 @@ $name = $_POST['name'];
 $age = $_POST['age'];
 
 if (strlen($name) < 3 || strlen($name) > 30) {
-    $_SESSION['mensagem-de-erro'] = 'O nome deve conter de 3 a 30 caracteres!';
+    $_SESSION['error-message'] = 'O nome deve conter de 3 a 30 caracteres!';
     header('location: /');
-}
-
-if (!is_numeric($age)) {
-    $_SESSION['mensagem-de-erro'] = 'A idade deve conter apenas números!';
+    return;
+} else if (!is_numeric($age)) {
+    $_SESSION['error-message'] = 'A idade deve conter apenas números!';
     header('location: /');
+    return;
 }
 
 if ($age >= 6 && $age < 12) {
-    echo $name.' você está na categoria '.$categorias[0];
+    $_SESSION['sucess-message'] = $name.' você está na categoria '.$categorias[0];
+    header('location: /');
 } else if ($age >= 12 && $age < 18) {
-    echo $name.' você está na categoria '.$categorias[1];
+    $_SESSION['sucess-message'] = $name.' você está na categoria '.$categorias[1];
+    header('location: /');
 } else if ($age >= 18) {
-    echo $name.' você está na categoria '.$categorias[2];
+    $_SESSION['sucess-message'] = $name.' você está na categoria '.$categorias[2];
+    header('location: /');
 } else {
-    echo 'A idade deve ser um número positivo!';
+    $_SESSION['error-message'] = 'A idade deve ser um número positivo!';
+    header('location: /');
 }

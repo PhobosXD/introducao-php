@@ -17,13 +17,6 @@
     <h1>Formulário de inscrição</h1>
 
     <form action='script.php' method='post'>
-        <?php
-            $mensagemDeErro = isset($_SESSION['mensagem-de-erro']) ? $_SESSION['mensagem-de-erro'] : '';
-            if (!empty($mensagemDeErro)) {
-                echo $mensagemDeErro;
-            }
-        ?>
-
         <p>
             Nome:
             <input type='text' name='name' />
@@ -33,6 +26,15 @@
             Idade:
             <input type='number' name='age' />
         </p>
+
+        <?php
+            $mensagemDeErro = isset($_SESSION['error-message']) ? $_SESSION['error-message'] : '';
+            if (!empty($mensagemDeErro)) {
+                echo $mensagemDeErro;
+            } else {
+                echo $_SESSION['sucess-message'];
+            }
+        ?>
 
         <p>
             <input type='submit' value='inscrever' />
