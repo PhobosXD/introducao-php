@@ -29,12 +29,17 @@
         </p>
 
         <?php
-            $mensagemDeErro = isset($_SESSION['error-message']) ? $_SESSION['error-message'] : '';
-            if (!empty($mensagemDeErro)) {
-                echo $mensagemDeErro;
-            } else {
-                echo $_SESSION['sucess-message'];
+            $errorMessage = get_error_message();
+            $sucessMessage = get_sucess_message();
+
+            if ($errorMessage != null) {
+                echo $errorMessage;
+            } else if ($sucessMessage != null) {
+                echo $sucessMessage;
             }
+
+            delete_error_message();
+            delete_sucess_message();
         ?>
 
         <p>
