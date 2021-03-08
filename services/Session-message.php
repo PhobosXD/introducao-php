@@ -7,7 +7,7 @@ function set_error_message(string $message) : void {
 }
 
 function get_error_message() : ?string {
-    return isset($_SESSION['error-message']) ? $_SESSION['error-message'] : NULL;
+    return isset($_SESSION['error-message']) ? $_SESSION['error-message'] : null;
 }
 
 function set_sucess_message(string $message) : void {
@@ -15,7 +15,7 @@ function set_sucess_message(string $message) : void {
 }
 
 function get_sucess_message() : ?string {
-    return isset($_SESSION['sucess-message']) ? $_SESSION['sucess-message'] : NULL;
+    return isset($_SESSION['sucess-message']) ? $_SESSION['sucess-message'] : null;
 }
 
 function delete_error_message() : void {
