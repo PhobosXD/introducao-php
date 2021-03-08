@@ -1,6 +1,6 @@
 <?php
 
-function set_categoria(string $name, string $age) : ?string {
+function set_categoria(string $name, string $age) : void {
     $categorias = [];
     $categorias[] = 'infantil';
     $categorias[] = 'adolescente';
@@ -11,14 +11,11 @@ function set_categoria(string $name, string $age) : ?string {
             set_sucess_message('O nadador '.$name.' está na categoria '.$categorias[0]);
         } else if ($age >= 12 && $age < 18) {
             set_sucess_message('O nadador '.$name.' está na categoria '.$categorias[1]);
-        } else ($age >= 18) {
+        } else {
             set_sucess_message('O nadador '.$name.' está na categoria '.$categorias[2]);
         }
-
-        return null;
-    } else {
-        return get_error_message();
     }
+    header('location: /');
 }
 
 ?>
